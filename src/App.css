@@ -3,7 +3,7 @@
   width: 100vw;
   display: grid;
   grid-template-columns: 100%;
-  
+
   
 }
 .Sidebar{
@@ -52,3 +52,8 @@
 background-color: aqua;
 } 
 
+.icon{
+  vertical-align: middle;
+  font-size: 40px;
+  padding-top: 10px;
+}

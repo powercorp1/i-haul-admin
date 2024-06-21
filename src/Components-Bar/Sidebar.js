@@ -3,6 +3,9 @@ import "../App.css";
 import React, { useState } from "react";
 import "../output.css";
 import { Button, Flowbite, Sidebar } from "flowbite-react";
+import 
+ {BsFillBellFill, BsFillEnvelopeFill, BsPersonCircle, BsSearch, BsJustify}
+ from 'react-icons/bs'
 import {
   HiArrowSmRight,
   HiChartPie,
@@ -82,15 +85,9 @@ function Sidebar1() {
       <div className="Navbar">
         <Navbar bg="light" data-bs-theme="light" className="Nav1">
           <Container>
-            <ToggleButton
-              size="large"
-              color="primary"
-              value="justify"
-              aria-label="justified"
-              onClick={handleToggleButton}
-            >
-              <FormatAlignJustifyIcon />
-            </ToggleButton>
+            
+              <BsJustify className="icon" onClick={handleToggleButton}/>
+            
             <Nav className="me-auto"></Nav>
           </Container>
         </Navbar>
