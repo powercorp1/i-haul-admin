@@ -1,5 +1,5 @@
 import React from "react";
-import TanStackTable from "../Table/Table";
+import TanStackTable from "../../components/Table/Table";
 
 const Main=()=>{
     

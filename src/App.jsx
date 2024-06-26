@@ -1,12 +1,14 @@
 import React from "react";
-import Main from "./components/Main/Main";
+import Main from "./pages/Users/Users";
 import { MultiLevelSidebar } from "./components/Sidebar/Sidebar";
 import { Route, Routes, useLocation } from "react-router-dom";
-
+import Movers from "./pages/Movers/Movers";
+import Moves from "./pages/Moves/Moves";
 import Navbar from "./components/Navbar/Navbar";
+import Serviceable from "./pages/Serviceable States/Serviceable";
 const App = () => {
 
-  const location= useLocation();
+  const location = useLocation();
   console.log(location);
   return (
     <div className="App">
@@ -24,13 +26,19 @@ const App = () => {
 
           <Routes location={location} key={location.pathname}>
             <Route element={<Main></Main>}
-            path="/" />
-          
+              path="/" />
 
-            <Route element={<div>Hello</div>}
-            path="/movers" />
-              
-           
+
+            <Route element={<Movers></Movers>}
+              path="/movers" />
+
+            <Route element={<Moves></Moves>}
+              path="/moves" />
+
+            <Route element={<Serviceable></Serviceable>}
+              path="/store" />
+
+
           </Routes>
 
         </section>

@@ -16,7 +16,7 @@ const Navbar = () => {
     return (
 
         <div className='w-full  flex items-cente justify-between bg-white shadow-sm border-2'>
-            <div className='text-indigo-950 m-4 font-bold text-xl md:text-2xl dark:text-transparent bg-clip-text dark:bg-gradient-to-l from-indigo-800 to-pink-800 '>I-Ray</div>
+            <div className='text-indigo-950 m-4 font-bold text-xl md:text-2xl dark:text-transparent bg-clip-text dark:bg-gradient-to-l from-indigo-800 to-pink-800 '>I-haul</div>
             <div className='flex gap-4 items-center justify-end px-4 text-indigo-950 dark:text-slate-800'>
                 <img src={profile} className='rounded-full w-8 h-8' />
             </div>

@@ -50,8 +50,10 @@ const TanStackTable = () => {
       header: "Phone Number",
     }),
     columnHelper.accessor("active", {
-      cell: (info) => <button className="active-button">
-        {info.getValue()}
+      cell: (info) => <button className="active-button bg-red-600 text-white rounded-3xl h-8 w-16">
+       <div className="text-sm">
+       {info.getValue()}
+       </div>
       </button>,
       header: "Active/In-Active",
     }),
@@ -108,7 +110,7 @@ const TanStackTable = () => {
                 <tr
                   key={row.id}
                   className={`
-                    ${i % 2 === 0 ? "bg-[#F2F2F2]" : "bg-[#FFFFFF]"}
+                    ${i % 2 === 0 ? "bg-[#F2F2F2] text-left " : "bg-[#FFFFFF] text-left"}
                     `}
                 >
                   {row.getVisibleCells().map((cell) => (
