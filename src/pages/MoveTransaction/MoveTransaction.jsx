@@ -11,67 +11,33 @@ import {
 import { Button } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 
-import { STORE } from "../../data";
+import { TRANSACTION } from "../../data";
 import { useState } from "react";
-import { MdOutlineDeleteOutline } from "react-icons/md";
-import { LuTruck } from "react-icons/lu";
 
 import Filters from "./Filters";
 
-const Serviceable = () => {
+const MoveTransaction = () => {
   const columnHelper = createColumnHelper();
 
-  const [check, setCheck] = useState(true);
-
-  const isCheck=()=>{
-
-    const elements = document.getElementsByClassName("rowCheck1");
-
-    for(var i=0;i<elements.length;i++){
-        elements[i].checked=document.getElementById("headerCheck").checked;
-    }
-
-  }
   const columns = [
-    columnHelper.accessor("checkBox", {
-      cell: (info) => (
-        <label>
-          <input type="checkbox" id="rowCheck" className="rowCheck1"/>
-        </label>
-      ),
-      header: (
-        <label>
-          <input type="checkbox" id="headerCheck" onClick={isCheck}/>
-        </label>
-      ),
-    }),
-    columnHelper.accessor("stateName", {
+    columnHelper.accessor("moveId", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "State Name",
+      header: "Move ID",
     }),
-
-    columnHelper.accessor("active", {
-      cell: (info) => (
-        <button className="active-button bg-red-600 text-white rounded-3xl h-8 w-16">
-          <div className="text-sm">{info.getValue()}</div>
-        </button>
-      ),
-      header: "Active/In-Active",
-    }),
-    columnHelper.accessor("status", {
+    columnHelper.accessor("userName", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Status",
+      header: "User Name",
     }),
-    columnHelper.accessor("action", {
-      cell: (info) => (
-        <span className="actions">
-          <MdOutlineDeleteOutline className="text-red-600 text-lg" />
-        </span>
-      ),
-      header: "Action",
+    columnHelper.accessor("moverName", {
+      cell: (info) => <span>{info.getValue()}</span>,
+      header: "Mover Name",
+    }),
+    columnHelper.accessor("amount", {
+      cell: (info) => <span>{info.getValue()}</span>,
+      header: "Amount",
     }),
   ];
-  const [data] = useState(() => [...STORE]);
+  const [data] = useState(() => [...TRANSACTION]);
 
   const [columnFilters, setColumnFilters] = useState([]);
 
@@ -96,7 +62,7 @@ const Serviceable = () => {
           ></Filters>
 
           <div className="Table">
-            <table className="w-full text-left border-2">
+            <table className="w-full text-center border-2">
               <thead className="bg-[#637083]">
                 {table.getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}>
@@ -179,4 +145,4 @@ const Serviceable = () => {
   );
 };
 
-export default Serviceable;
+export default MoveTransaction;

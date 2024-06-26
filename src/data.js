@@ -49,7 +49,28 @@ export function createRandomStores(){
   }
 }
 
+export function createRandomFlagged() {
+  return {
+    userName: "Dhanush Nanda",
+    moverName: "Dhanush Nanda",
+    whoFlagged: "customer",
+  };
+}
+
+export function createRandomTransaction() {
+  return {
+    userName: "Dhanush Nanda",
+    moverName: "Dhanush Nanda",
+    moveId:"804832sdasd21dssdee",
+    amount:400,
+  };
+}
+
 export const USERS = faker.helpers.multiple(createRandomUser, {
+  count: 300,
+});
+
+export const TRANSACTION = faker.helpers.multiple(createRandomTransaction, {
   count: 300,
 });
 
@@ -58,3 +79,5 @@ export const MOVERS= faker.helpers.multiple(createRandomMovers,{count:300});
 export const MOVES= faker.helpers.multiple(createRandomMoves,{count:300});
 
 export const STORE = faker.helpers.multiple(createRandomStores,{count:300});
+
+export const FLAGGED = faker.helpers.multiple(createRandomFlagged, { count: 300 });
