@@ -16,6 +16,10 @@ import EditUser from "./pages/Users/EditUser";
 import ChangePassword from "./pages/Users/ChangePassword";
 import ChangePasswordModal from "./components/Modal/ChangePasswordModal";
 import EditMover from "./pages/Movers/EditMover";
+import AboutUs from "./pages/CMSManagement/AboutUs";
+import PrivacyPolicy from "./pages/CMSManagement/PrivacyPolicy";
+import TermsAndConditions from "./pages/CMSManagement/TermsAndConditions";
+
 const App = () => {
   const location = useLocation();
   console.log(location);
@@ -62,10 +66,10 @@ const App = () => {
               element={<ChangePassword></ChangePassword>}
               path="/changepassword"
             />
-            <Route
-              element={<EditMover></EditMover>}
-              path="/editmover"
-            />
+            <Route element={<EditMover></EditMover>} path="/editmover" />
+            <Route element={<AboutUs></AboutUs>} path="/aboutus" />
+            <Route element={<TermsAndConditions></TermsAndConditions>} path="/termsandconditions" />
+            <Route element={<PrivacyPolicy></PrivacyPolicy>} path="/privacypolicy" />
           </Routes>
         </section>
       </div>

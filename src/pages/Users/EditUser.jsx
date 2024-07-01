@@ -2,7 +2,7 @@ import React from "react";
 
 const EditUser = () => {
   return (
-    <div className="m-5 mt-3 flex flex-col">
+    <div className="m-5 mt-3 flex flex-col mb-[15%]">
       <div className="m-3">
         <a href="/">
           <button className="active-button bg-[#CBD2DA] text-white rounded-3xl h-10 w-20">

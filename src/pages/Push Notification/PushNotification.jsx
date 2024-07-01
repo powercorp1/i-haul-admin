@@ -2,9 +2,9 @@ import React from "react";
 
 const PushNotification = () => {
   return (
-    <div className="m-5">
+    <div className="m-5 pb-[12.5%]">
       <section className=" bg-white m-2 border-2">
-        <div className="flex flex-col">
+        <div className="flex flex-col ">
           <div className="flex items-center justify-between">
             <div className="font-bold text-2xl p-4  text-[#3C4C65]">
               Send Push Notification
