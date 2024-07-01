@@ -17,12 +17,16 @@ import { MdOutlineEdit, MdOutlineDeleteOutline, } from "react-icons/md";
 import { IoLockClosedOutline } from "react-icons/io5";
 import Filters from "./Filters";
 
-
+import ChangePasswordModal from "../Modal/ChangePasswordModal";
+import ActiveModal from "../Modal/ActiveModal";
 const TanStackTable = () => {
   const columnHelper = createColumnHelper();
 
-  const columns = [
+   const [showPasswordModal, setShowPasswordModal] = useState(false);
+   const [showActiveModal, setActiveModal] = useState(false);
 
+
+  const columns = [
     columnHelper.accessor("profile", {
       cell: (info) => (
         <img
@@ -50,11 +54,11 @@ const TanStackTable = () => {
       header: "Phone Number",
     }),
     columnHelper.accessor("active", {
-      cell: (info) => <button className="active-button bg-red-600 text-white rounded-3xl h-8 w-16">
-       <div className="text-sm">
-       {info.getValue()}
-       </div>
-      </button>,
+      cell: (info) => (
+        <button onClick={()=>setActiveModal(true)} className="active-button bg-red-600 text-white rounded-3xl h-8 w-16">
+          <div className="text-sm">{info.getValue()}</div>
+        </button>
+      ),
       header: "Active/In-Active",
     }),
     columnHelper.accessor("status", {
@@ -62,11 +66,21 @@ const TanStackTable = () => {
       header: "Status",
     }),
     columnHelper.accessor("action", {
-      cell: (info) => <span className="actions flex gap-2"><MdOutlineEdit className="text-blue-600 text-lg" /> <MdOutlineDeleteOutline className="text-red-600 text-lg" /> <IoLockClosedOutline className="text-green-600 text-lg" />
-      </span>,
+      cell: (info) => (
+        <span className="actions flex gap-2">
+          <a href="/edituser">
+            <MdOutlineEdit className="text-blue-600 text-lg" />
+          </a>{" "}
+          <MdOutlineDeleteOutline className="text-red-600 text-lg" />{" "}
+          
+           <button onClick={()=>setShowPasswordModal(true)}>
+             <IoLockClosedOutline className="text-green-600 text-lg" />
+           </button>
+          
+        </span>
+      ),
       header: "Action",
     }),
-
   ];
   const [data] = useState(() => [...USERS]);
   const [columnFilters, setColumnFilters] = useState([]);
@@ -84,9 +98,10 @@ const TanStackTable = () => {
   });
   return (
     <div className="main-container m-5 flex flex-col">
-
-      <Filters columnFilters={columnFilters}
-        setColumnFilters={setColumnFilters}></Filters>
+      <Filters
+        columnFilters={columnFilters}
+        setColumnFilters={setColumnFilters}
+      ></Filters>
 
       <div className="Table">
         <table className="w-full text-left border-2">
@@ -94,7 +109,10 @@ const TanStackTable = () => {
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <th key={header.id} className="capitalize px-3.5 py-2 text-[#FFFFFF]">
+                  <th
+                    key={header.id}
+                    className="capitalize px-3.5 py-2 text-[#FFFFFF]"
+                  >
                     {flexRender(
                       header.column.columnDef.header,
                       header.getContext()
@@ -110,12 +128,19 @@ const TanStackTable = () => {
                 <tr
                   key={row.id}
                   className={`
-                    ${i % 2 === 0 ? "bg-[#F2F2F2] text-left " : "bg-[#FFFFFF] text-left"}
+                    ${
+                      i % 2 === 0
+                        ? "bg-[#F2F2F2] text-left "
+                        : "bg-[#FFFFFF] text-left"
+                    }
                     `}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <td key={cell.id} className="px-3.5 py-2 text-[#3C4C65]">
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
                     </td>
                   ))}
                 </tr>
@@ -157,7 +182,18 @@ const TanStackTable = () => {
           </Button>
         </div>
       </div>
+      {showPasswordModal && (
+        <ChangePasswordModal
+          onClose={() => setShowPasswordModal(false)}
+        ></ChangePasswordModal>
+      )}
 
+      {showActiveModal && (
+        <ActiveModal
+          onClose={() => setActiveModal(false)}
+          string="User"
+        ></ActiveModal>
+      )}
     </div>
   );
 };

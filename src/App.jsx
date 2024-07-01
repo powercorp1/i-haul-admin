@@ -8,13 +8,20 @@ import Navbar from "./components/Navbar/Navbar";
 import Serviceable from "./pages/Serviceable States/Serviceable";
 import Flagged from "./pages/Flagged/Flagged";
 import MoveTransaction from "./pages/MoveTransaction/MoveTransaction";
+import Settings from "./pages/Settings/Settings";
+import PushNotification from "./pages/Push Notification/PushNotification";
+import AddState from "./pages/Serviceable States/AddState";
+import ImportCsv from "./pages/Serviceable States/ImportCsv";
+import EditUser from "./pages/Users/EditUser";
+import ChangePassword from "./pages/Users/ChangePassword";
+import ChangePasswordModal from "./components/Modal/ChangePasswordModal";
+import EditMover from "./pages/Movers/EditMover";
 const App = () => {
-
   const location = useLocation();
   console.log(location);
   return (
     <div className="App">
-      <div className="flex h-screen bg-[#ECEDEF]">
+      <div className="flex h-fit bg-[#ECEDEF]">
         <section className="w-[15%]">
           <MultiLevelSidebar></MultiLevelSidebar>
         </section>
@@ -35,12 +42,35 @@ const App = () => {
 
             <Route element={<Flagged></Flagged>} path="/flagged" />
 
-            <Route element={<MoveTransaction></MoveTransaction>} path="/movetransaction" />
+            <Route
+              element={<MoveTransaction></MoveTransaction>}
+              path="/movetransaction"
+            />
+
+            <Route element={<Settings></Settings>} path="/settings" />
+
+            <Route
+              element={<PushNotification></PushNotification>}
+              path="/pushnotification"
+            />
+
+            <Route element={<AddState></AddState>} path="/addstate" />
+            <Route element={<ImportCsv></ImportCsv>} path="/importcsv" />
+
+            <Route element={<EditUser></EditUser>} path="/edituser" />
+            <Route
+              element={<ChangePassword></ChangePassword>}
+              path="/changepassword"
+            />
+            <Route
+              element={<EditMover></EditMover>}
+              path="/editmover"
+            />
           </Routes>
         </section>
       </div>
     </div>
   );
-}
+};
 
 export default App;

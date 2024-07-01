@@ -17,9 +17,12 @@ import { MdOutlineDeleteOutline } from "react-icons/md";
 import { LuTruck } from "react-icons/lu";
 
 import Filters from "./Filters";
+import ActiveModal from "../../components/Modal/ActiveModal";
 
 const Serviceable = () => {
   const columnHelper = createColumnHelper();
+
+  const [showActiveModal, setActiveModal] = useState(false);
 
   const [check, setCheck] = useState(true);
 
@@ -52,7 +55,7 @@ const Serviceable = () => {
 
     columnHelper.accessor("active", {
       cell: (info) => (
-        <button className="active-button bg-red-600 text-white rounded-3xl h-8 w-16">
+        <button onClick={()=>setActiveModal(true)} className="active-button bg-red-600 text-white rounded-3xl h-8 w-16">
           <div className="text-sm">{info.getValue()}</div>
         </button>
       ),
@@ -89,11 +92,28 @@ const Serviceable = () => {
   return (
     <div className="bg-white m-9 border-2">
       <section className="flex flex-col">
+        <div className="p-4 mr-5 flex justify-end">
+          <div className="px-3">
+            <a href="/addstate">
+              <button className="active-button bg-[#CBD2DA] text-black rounded-md h-10 w-20">
+                <div className="text-sm text-[#637083] ">Add State</div>
+              </button>
+            </a>
+          </div>
+          <a href="/importcsv">
+            <button className="active-button bg-[#CBD2DA] text-black rounded-md h-10 w-20  ">
+              <div className="text-sm text-[#637083] ">Import CSV</div>
+            </button>
+          </a>
+        </div>
+        <hr className="border-gray-300 border mb-6" />
         <div className="main-container m-5 flex flex-col">
-          <Filters
-            columnFilters={columnFilters}
-            setColumnFilters={setColumnFilters}
-          ></Filters>
+          <div className="flex justify-end">
+            <Filters
+              columnFilters={columnFilters}
+              setColumnFilters={setColumnFilters}
+            ></Filters>
+          </div>
 
           <div className="Table">
             <table className="w-full text-left border-2">
@@ -175,6 +195,12 @@ const Serviceable = () => {
           </div>
         </div>
       </section>
+      {showActiveModal && (
+        <ActiveModal
+          onClose={() => setActiveModal(false)}
+          string="State"
+        ></ActiveModal>
+      )}
     </div>
   );
 };
