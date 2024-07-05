@@ -19,6 +19,12 @@ import EditMover from "./pages/Movers/EditMover";
 import AboutUs from "./pages/CMSManagement/AboutUs";
 import PrivacyPolicy from "./pages/CMSManagement/PrivacyPolicy";
 import TermsAndConditions from "./pages/CMSManagement/TermsAndConditions";
+import PromoCodes from "./pages/Promotions/PromoCode/PromoCode";
+import EditPromoCodes from "./pages/Promotions/PromoCode/EditPromoCodes";
+import X from "./pages/Promotions/HomeCards/HomeCard";
+import HomeCard from "./pages/Promotions/HomeCards/HomeCard";
+import AddNewHomeCard from "./pages/Promotions/HomeCards/AddNew";
+
 
 const App = () => {
   const location = useLocation();
@@ -68,8 +74,26 @@ const App = () => {
             />
             <Route element={<EditMover></EditMover>} path="/editmover" />
             <Route element={<AboutUs></AboutUs>} path="/aboutus" />
-            <Route element={<TermsAndConditions></TermsAndConditions>} path="/termsandconditions" />
-            <Route element={<PrivacyPolicy></PrivacyPolicy>} path="/privacypolicy" />
+            <Route
+              element={<TermsAndConditions></TermsAndConditions>}
+              path="/termsandconditions"
+            />
+            <Route
+              element={<PrivacyPolicy></PrivacyPolicy>}
+              path="/privacypolicy"
+            />
+            <Route element={<PromoCodes></PromoCodes>} path="/promocodes" />
+            <Route
+              element={<EditPromoCodes></EditPromoCodes>}
+              path="/editpromocodes"
+            />
+            <Route
+              element={<EditPromoCodes></EditPromoCodes>}
+              path="/editpromocodes"
+            />
+            <Route element={<HomeCard></HomeCard>} path="/homecards" />
+
+            <Route element={<AddNewHomeCard></AddNewHomeCard>} path="/addnewhomecard" />
           </Routes>
         </section>
       </div>

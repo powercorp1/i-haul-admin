@@ -150,8 +150,52 @@ export function MultiLevelSidebar() {
                 <ListItem className="text-white ">Privacy Policy</ListItem>
               </a>
               <a href="/termsandconditions">
-                <ListItem className="text-white ">Terms and Conditions</ListItem>
+                <ListItem className="text-white ">
+                  Terms and Conditions
+                </ListItem>
               </a>
+            </List>
+          </AccordionBody>
+        </Accordion>
+
+        <Accordion
+          open={open === 1}
+          icon={
+            <ChevronDownIcon
+              strokeWidth={2.5}
+              className={`mx-auto h-4 w-4 text-white  transition-transform ${
+                open === 1 ? "rotate-180" : ""
+              }`}
+            />
+          }
+        >
+          <ListItem className="p-0" selected={open === 1}>
+            <AccordionHeader
+              onClick={() => handleOpen(1)}
+              className="border-b-0 p-3 flex gap-5 items-center"
+            >
+              <ListItemPrefix>
+                <ShoppingBagIcon className="h-5 w-5 text-white " />
+              </ListItemPrefix>
+              <Typography
+                color="blue-gray"
+                className="mr-auto font-normal text-white "
+              >
+               Promotions
+              </Typography>
+            </AccordionHeader>
+          </ListItem>
+          <AccordionBody className="py-1">
+            <List
+              className={`py-0 ${open === 0 || open === 2 ? "hidden" : ""}`}
+            >
+              <a href="/promocodes">
+                <ListItem className="text-white ">Promo Codes</ListItem>
+              </a>
+              <a href="/homecards">
+                <ListItem className="text-white ">Home Cards</ListItem>
+              </a>
+              
             </List>
           </AccordionBody>
         </Accordion>

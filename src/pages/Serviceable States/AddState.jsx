@@ -3,8 +3,8 @@ import React from "react";
 const AddState=()=>{
 
     return (
-      <div>
-        <section className=" bg-white m-4 mx-6 border-2">
+      <div className="pb-[30%]">
+        <section className=" bg-white m-10 mx-6 border-2 ">
           <div className="flex flex-col">
             <div className="flex items-center justify-between">
               <div className="font-bold text-md p-4  text-[#3C4C65]">

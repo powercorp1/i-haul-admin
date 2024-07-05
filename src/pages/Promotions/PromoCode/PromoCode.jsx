@@ -10,50 +10,53 @@ import {
 
 import { Button } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { MdOutlineEdit, MdOutlineDeleteOutline } from "react-icons/md";
+import { IoLockClosedOutline } from "react-icons/io5";
 
-import { MOVES } from "../../data";
+import {  PROMOCODES } from "../../../data";
 import { useState } from "react";
-import { MdOutlineDeleteOutline } from "react-icons/md";
-import { LuTruck } from "react-icons/lu";
-
 import Filters from "./Filters";
+import ChangePasswordModal from "../../../components/Modal/ChangePasswordModal";
+import ActiveModal from "../../../components/Modal/ActiveModal";
 
-const Moves = () => {
+const PromoCodes = () => {
   const columnHelper = createColumnHelper();
 
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
+
+  const [showActiveModal, setActiveModal] = useState(false);
+
   const columns = [
-    columnHelper.accessor("userName", {
+    
+    columnHelper.accessor("promoCode", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "User Name",
+      header: "Promo Code",
     }),
-    columnHelper.accessor("pickUpAddress", {
+    columnHelper.accessor("startDate", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Pickup Address",
+      header: "Start Date",
     }),
-    columnHelper.accessor("dropOffAddress", {
+    columnHelper.accessor("endDate", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Dropoff Addres",
+      header: "End Date",
     }),
-    columnHelper.accessor("date", {
+    columnHelper.accessor("applicableFor", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Date",
-    }),
-    columnHelper.accessor("status", {
-      cell: (info) => <span>{info.getValue()}</span>,
-      header: "Status",
+      header: "Applicable For",
     }),
     columnHelper.accessor("action", {
       cell: (info) => (
-        <span className="actions flex gap-2">
-          {" "}
-          <LuTruck className="text-red-600 text-lg" />{" "}
+        <span className="actions flex justify-center gap-2">
+          <a href="/editpromocodes ">
+            <MdOutlineEdit className="text-blue-600 text-lg" />
+          </a>{" "}
           <MdOutlineDeleteOutline className="text-red-600 text-lg" />
         </span>
       ),
       header: "Action",
     }),
   ];
-  const [data] = useState(() => [...MOVES]);
+  const [data] = useState(() => [...PROMOCODES]);
 
   const [columnFilters, setColumnFilters] = useState([]);
 
@@ -69,7 +72,7 @@ const Moves = () => {
   });
 
   return (
-    <div className="bg-white m-9 border-2 mb-40">
+    <div className="bg-white m-9 border-2">
       <section className="flex flex-col">
         <div className="main-container m-5 flex flex-col">
           <Filters
@@ -78,7 +81,7 @@ const Moves = () => {
           ></Filters>
 
           <div className="Table">
-            <table className="w-full text-left border-2">
+            <table className="w-full text-center border-2">
               <thead className="bg-[#637083]">
                 {table.getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}>
@@ -102,7 +105,9 @@ const Moves = () => {
                     <tr
                       key={row.id}
                       className={`${
-                        i % 2 === 0 ? "bg-[#F2F2F2] " : "bg-[#FFFFFF] "
+                        i % 2 === 0
+                          ? "bg-[#F2F2F2] text-center"
+                          : "bg-[#FFFFFF] text-center"
                       }`}
                     >
                       {row.getVisibleCells().map((cell) => (
@@ -157,8 +162,20 @@ const Moves = () => {
           </div>
         </div>
       </section>
+
+      {showPasswordModal && (
+        <ChangePasswordModal
+          onClose={() => setShowPasswordModal(false)}
+        ></ChangePasswordModal>
+      )}
+      {showActiveModal && (
+        <ActiveModal
+          onClose={() => setActiveModal(false)}
+          string="Mover"
+        ></ActiveModal>
+      )}
     </div>
   );
 };
 
-export default Moves;
+export default PromoCodes;

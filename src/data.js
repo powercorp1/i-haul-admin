@@ -66,7 +66,26 @@ export function createRandomTransaction() {
   };
 }
 
+export function createRandomPromoCodes() {
+  return {
+    promoCode: "804832sdasd21dssdee",
+    startDate: "21/2/2024",
+    endDate: "12/4/2025",
+    applicableFor: "for all",
+  };
+}
+export function createRandomHomeCards() {
+  return {
+    title: "Title",
+    subTitle: "Sub Title",
+    actionLabel: "action",
+    applicableFor: "for all",
+  };
+}
 export const USERS = faker.helpers.multiple(createRandomUser, {
+  count: 300,
+});
+export const HOMECARD = faker.helpers.multiple(createRandomHomeCards, {
   count: 300,
 });
 
@@ -81,3 +100,5 @@ export const MOVES= faker.helpers.multiple(createRandomMoves,{count:300});
 export const STORE = faker.helpers.multiple(createRandomStores,{count:300});
 
 export const FLAGGED = faker.helpers.multiple(createRandomFlagged, { count: 300 });
+
+export const PROMOCODES = faker.helpers.multiple(createRandomPromoCodes, { count: 300 });

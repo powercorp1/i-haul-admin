@@ -11,49 +11,56 @@ import {
 import { Button } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 
-import { MOVES } from "../../data";
+import { HOMECARD, STORE } from "../../../data";
 import { useState } from "react";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { LuTruck } from "react-icons/lu";
 
 import Filters from "./Filters";
+import ActiveModal from "../../../components/Modal/ActiveModal";
 
-const Moves = () => {
+const HomeCard = () => {
   const columnHelper = createColumnHelper();
 
+  const [showActiveModal, setActiveModal] = useState(false);
+
+  const [check, setCheck] = useState(true);
+
+  const isCheck = () => {
+    const elements = document.getElementsByClassName("rowCheck1");
+
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].checked = document.getElementById("headerCheck").checked;
+    }
+  };
   const columns = [
-    columnHelper.accessor("userName", {
+    columnHelper.accessor("title", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "User Name",
+      header: "Title",
     }),
-    columnHelper.accessor("pickUpAddress", {
+
+    columnHelper.accessor("subTitle", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Pickup Address",
+      header: "Sub Title",
     }),
-    columnHelper.accessor("dropOffAddress", {
+    columnHelper.accessor("actionLabel", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Dropoff Addres",
+      header: "Action Label",
     }),
-    columnHelper.accessor("date", {
+    columnHelper.accessor("applicableFor", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "Date",
-    }),
-    columnHelper.accessor("status", {
-      cell: (info) => <span>{info.getValue()}</span>,
-      header: "Status",
+      header: "Applicable For",
     }),
     columnHelper.accessor("action", {
       cell: (info) => (
-        <span className="actions flex gap-2">
-          {" "}
-          <LuTruck className="text-red-600 text-lg" />{" "}
+        <span className="flex justify-center actions">
           <MdOutlineDeleteOutline className="text-red-600 text-lg" />
         </span>
       ),
       header: "Action",
     }),
   ];
-  const [data] = useState(() => [...MOVES]);
+  const [data] = useState(() => [...HOMECARD]);
 
   const [columnFilters, setColumnFilters] = useState([]);
 
@@ -69,16 +76,29 @@ const Moves = () => {
   });
 
   return (
-    <div className="bg-white m-9 border-2 mb-40">
+    <div className="bg-white m-9 border-2">
       <section className="flex flex-col">
+        <div className="p-4 mr-5 flex justify-end">
+          <div className="px-3">
+            <a href="/addnewhomecard">
+              <button className="active-button bg-[#CBD2DA] text-black rounded-md h-10 w-20">
+                <div className="text-sm text-[#637083] ">Add New</div>
+              </button>
+            </a>
+          </div>
+          
+        </div>
+        <hr className="border-gray-300 border mb-6" />
         <div className="main-container m-5 flex flex-col">
-          <Filters
-            columnFilters={columnFilters}
-            setColumnFilters={setColumnFilters}
-          ></Filters>
+          <div className="flex justify-end">
+            <Filters
+              columnFilters={columnFilters}
+              setColumnFilters={setColumnFilters}
+            ></Filters>
+          </div>
 
           <div className="Table">
-            <table className="w-full text-left border-2">
+            <table className="w-full text-center border-2 ">
               <thead className="bg-[#637083]">
                 {table.getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}>
@@ -157,8 +177,14 @@ const Moves = () => {
           </div>
         </div>
       </section>
+      {showActiveModal && (
+        <ActiveModal
+          onClose={() => setActiveModal(false)}
+          string="State"
+        ></ActiveModal>
+      )}
     </div>
   );
 };
 
-export default Moves;
+export default HomeCard;

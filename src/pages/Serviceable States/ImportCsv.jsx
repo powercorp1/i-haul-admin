@@ -3,8 +3,8 @@ import React from "react";
 const ImportCsv=()=>{
 
     return (
-      <div>
-        <section className=" bg-white m-2 border-2">
+      <div className="pb-[35%]">
+        <section className=" bg-white m-2 border-2 mt-5">
           <div className="flex flex-col">
             <div className="flex items-center justify-between">
               <div className="font-bold text-md p-4  text-[#3C4C65]">
