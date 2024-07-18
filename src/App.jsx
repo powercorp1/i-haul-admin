@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Main from "./pages/Users/Users";
 import { MultiLevelSidebar } from "./components/Sidebar/Sidebar";
 import { Route, Routes, useLocation } from "react-router-dom";
@@ -25,10 +25,17 @@ import X from "./pages/Promotions/HomeCards/HomeCard";
 import HomeCard from "./pages/Promotions/HomeCards/HomeCard";
 import AddNewHomeCard from "./pages/Promotions/HomeCards/AddNew";
 
+import Card from "./components/Card/Card";
 
 const App = () => {
   const location = useLocation();
-  console.log(location);
+  const [homeCardDetails, setHomeCardDetails] = useState("");
+
+  const cardDetailsHandler = (cardDetails) => {
+    
+    setHomeCardDetails(cardDetails);
+  };
+
   return (
     <div className="App">
       <div className="flex h-fit bg-[#ECEDEF]">
@@ -91,9 +98,20 @@ const App = () => {
               element={<EditPromoCodes></EditPromoCodes>}
               path="/editpromocodes"
             />
-            <Route element={<HomeCard></HomeCard>} path="/homecards" />
+            <Route
+              element={<HomeCard details={homeCardDetails}></HomeCard>}
+              path="/homecards"
+            />
 
-            <Route element={<AddNewHomeCard></AddNewHomeCard>} path="/addnewhomecard" />
+            <Route
+              element={<AddNewHomeCard cardDetails={cardDetailsHandler} />}
+              path="/addnewhomecard"
+            />
+
+            <Route
+              element={<Card></Card>}
+              path="/card"
+            />
           </Routes>
         </section>
       </div>

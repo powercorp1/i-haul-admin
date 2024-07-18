@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 const EditPromoCodes = () => {
+
+  const [showSpec,setShowSpec]=useState(false);
+
+  const applicableFor=(e)=>{
+
+    if(e.target.value==="customerspecific")
+      setShowSpec(true);
+    else
+    setShowSpec(false);
+
+
+  }
   return (
-    <div className="m-5 mt-3 flex flex-col mb-[15%]">
+    <div className="m-5 mt-3 flex flex-col mb-[20%]">
       <div className="m-3">
         <a href="/promocodes">
           <button className="active-button bg-[#CBD2DA] text-white rounded-3xl h-10 w-20">
@@ -64,14 +76,30 @@ const EditPromoCodes = () => {
               <select
                 id="last_name"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[1170%] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                requiredblue
+                onChange={(e) => applicableFor(e)}
               >
                 <option value="forall">For All</option>
                 <option value="customerspecific">Customer Specific</option>
-                <option value="customeruserid">Customer UserID</option>
               </select>
             </div>
           </div>
+          {showSpec && (
+            <div className="flex w-[30%] justify-between mb-4 items-center">
+              <div className="text-[#637083] font-semibold p-4">
+                {" "}
+                Customer ID
+              </div>
+              <div className="">
+                <input
+                  type="text"
+                  id="customer_id"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[250%] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Customer Id or Email or Phone Number"
+                  required
+                />
+              </div>
+            </div>
+          )}
 
           <hr className="border-gray-300 border" />
           <div className="p-4 mr-5 flex justify-end">

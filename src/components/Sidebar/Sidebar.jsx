@@ -20,7 +20,7 @@ import {
   PowerIcon,
 } from "@heroicons/react/24/solid";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { NavLink } from "react-router-dom";
+import { NavLink,Navigate } from "react-router-dom";
 
 export function MultiLevelSidebar() {
   const [open, setOpen] = React.useState(0);
@@ -35,7 +35,7 @@ export function MultiLevelSidebar() {
     <Card className="h-screen w-full max-w-[18rem] p-0 shadow-xl shadow-blue-gray-900/5 bg-[#3C4C65] rounded-none fixed">
       <List>
         <Accordion open={open === 1}>
-          <a href="/">
+          <NavLink to="/">
             <ListItem className="p-0" selected={open === 1}>
               <AccordionHeader
                 onClick={() => handleOpen(1)}
@@ -52,66 +52,66 @@ export function MultiLevelSidebar() {
                 </Typography>
               </AccordionHeader>
             </ListItem>
-          </a>
+          </NavLink>
         </Accordion>
 
-        <a href="/movers">
+        <NavLink to="/movers">
           <ListItem className="text-white flex gap-5 items-center ">
             <ListItemPrefix>
               <InboxIcon className="h-5 w-5" />
             </ListItemPrefix>
             Movers
           </ListItem>
-        </a>
+        </NavLink>
 
-        <a href="/moves">
+        <NavLink to="/moves">
           <ListItem className="text-white flex gap-5 items-center ">
             <ListItemPrefix>
               <InboxIcon className="h-5 w-5" />
             </ListItemPrefix>
             Moves
           </ListItem>
-        </a>
-        <a href="/store">
+        </NavLink>
+        <NavLink to="/store">
           <ListItem className="text-white flex gap-5 items-center ">
             <ListItemPrefix>
               <InboxIcon className="h-5 w-5" />
             </ListItemPrefix>
             Serviceable State
           </ListItem>
-        </a>
-        <a href="/flagged">
+        </NavLink>
+        <NavLink to="/flagged">
           <ListItem className="text-white flex gap-5 items-center ">
             <ListItemPrefix>
               <InboxIcon className="h-5 w-5" />
             </ListItemPrefix>
             Flagged
           </ListItem>
-        </a>
-        <a href="movetransaction">
+        </NavLink>
+        <NavLink to="movetransaction">
           <ListItem className="text-white flex gap-5 items-center ">
             <ListItemPrefix>
               <InboxIcon className="h-5 w-5" />
             </ListItemPrefix>
             Move Transaction
           </ListItem>
-        </a>
-        <a href="settings">
+        </NavLink>
+        <NavLink to="settings">
           <ListItem className="text-white flex gap-5 items-center ">
             <ListItemPrefix>
               <InboxIcon className="h-5 w-5" />
             </ListItemPrefix>
             Settings
           </ListItem>
-        </a>
-        <a href="/pushnotification">
+        </NavLink>
+        <NavLink to="/pushnotification">
           <ListItem className="text-white flex gap-5 items-center ">
             <ListItemPrefix>
               <InboxIcon className="h-5 w-5" />
             </ListItemPrefix>
             Push Notification
           </ListItem>
-        </a>
+        </NavLink>
         <Accordion
           open={open === 2}
           icon={
@@ -189,12 +189,12 @@ export function MultiLevelSidebar() {
             <List
               className={`py-0 ${open === 0 || open === 2 ? "hidden" : ""}`}
             >
-              <a href="/promocodes">
+              <NavLink to="/promocodes">
                 <ListItem className="text-white ">Promo Codes</ListItem>
-              </a>
-              <a href="/homecards">
+              </NavLink>
+              <NavLink to="/homecards">
                 <ListItem className="text-white ">Home Cards</ListItem>
-              </a>
+              </NavLink>
               
             </List>
           </AccordionBody>
