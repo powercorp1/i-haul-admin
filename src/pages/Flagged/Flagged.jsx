@@ -59,13 +59,13 @@ const Flagged = () => {
 
           <div className="Table">
             <table className="w-full text-center border-2">
-              <thead className="bg-[#637083]">
+              <thead className="bg-primary-statusbar">
                 {table.getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}>
                     {headerGroup.headers.map((header) => (
                       <th
                         key={header.id}
-                        className="capitalize px-3.5 py-2 text-[#FFFFFF]"
+                        className="capitalize px-3.5 py-2 text-primary-textcolor"
                       >
                         {flexRender(
                           header.column.columnDef.header,

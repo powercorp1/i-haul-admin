@@ -47,8 +47,8 @@ const PushNotification = () => {
 
           <hr className="border-gray-300 border m-5" />
           <div className="p-4 mr-5 flex justify-end">
-            <button className="active-button bg-blue-600 text-white rounded-3xl h-10 w-20">
-              <div className="text-sm italic ">Send</div>
+            <button className="active-button bg-primary-button text-white rounded-3xl h-10 w-20">
+              <div className="text-sm italic text-primary-textcolor ">Send</div>
             </button>
           </div>
         </div>

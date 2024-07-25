@@ -32,7 +32,7 @@ export function MultiLevelSidebar() {
 
 
   return (
-    <Card className="h-screen w-full max-w-[18rem] p-0 shadow-xl shadow-blue-gray-900/5 bg-[#3C4C65] rounded-none fixed">
+    <Card className="h-screen w-full max-w-[18rem] p-0 shadow-xl shadow-blue-gray-900/5 bg-primary-line1 rounded-none fixed">
       <List>
         <Accordion open={open === 1}>
           <NavLink to="/">
@@ -41,12 +41,12 @@ export function MultiLevelSidebar() {
                 onClick={() => handleOpen(1)}
                 className="border-b-0 p-3 flex gap-5 items-center data-[active=true]:bg-slate-950"
               >
-                <ListItemPrefix className="text-white">
+                <ListItemPrefix className="text-primary-textcolor">
                   <PresentationChartBarIcon className="h-5 w-5" />
                 </ListItemPrefix>
                 <Typography
                   color="blue-gray"
-                  className="mr-auto font-normal text-white text-base"
+                  className="mr-auto font-normal text-primary-textcolor text-base"
                 >
                   Users
                 </Typography>
@@ -56,7 +56,7 @@ export function MultiLevelSidebar() {
         </Accordion>
 
         <NavLink to="/movers">
-          <ListItem className="text-white flex gap-5 items-center ">
+          <ListItem className="text-primary-textcolor flex gap-5 items-center ">
             <ListItemPrefix>
               <InboxIcon className="h-5 w-5" />
             </ListItemPrefix>
@@ -65,7 +65,7 @@ export function MultiLevelSidebar() {
         </NavLink>
 
         <NavLink to="/moves">
-          <ListItem className="text-white flex gap-5 items-center ">
+          <ListItem className="text-primary-textcolor flex gap-5 items-center ">
             <ListItemPrefix>
               <InboxIcon className="h-5 w-5" />
             </ListItemPrefix>
@@ -73,7 +73,7 @@ export function MultiLevelSidebar() {
           </ListItem>
         </NavLink>
         <NavLink to="/store">
-          <ListItem className="text-white flex gap-5 items-center ">
+          <ListItem className="text-primary-textcolor flex gap-5 items-center ">
             <ListItemPrefix>
               <InboxIcon className="h-5 w-5" />
             </ListItemPrefix>
@@ -81,7 +81,7 @@ export function MultiLevelSidebar() {
           </ListItem>
         </NavLink>
         <NavLink to="/flagged">
-          <ListItem className="text-white flex gap-5 items-center ">
+          <ListItem className="text-primary-textcolor flex gap-5 items-center ">
             <ListItemPrefix>
               <InboxIcon className="h-5 w-5" />
             </ListItemPrefix>
@@ -89,7 +89,7 @@ export function MultiLevelSidebar() {
           </ListItem>
         </NavLink>
         <NavLink to="movetransaction">
-          <ListItem className="text-white flex gap-5 items-center ">
+          <ListItem className="text-primary-textcolor flex gap-5 items-center ">
             <ListItemPrefix>
               <InboxIcon className="h-5 w-5" />
             </ListItemPrefix>
@@ -97,7 +97,7 @@ export function MultiLevelSidebar() {
           </ListItem>
         </NavLink>
         <NavLink to="settings">
-          <ListItem className="text-white flex gap-5 items-center ">
+          <ListItem className="text-primary-textcolor flex gap-5 items-center ">
             <ListItemPrefix>
               <InboxIcon className="h-5 w-5" />
             </ListItemPrefix>
@@ -105,7 +105,7 @@ export function MultiLevelSidebar() {
           </ListItem>
         </NavLink>
         <NavLink to="/pushnotification">
-          <ListItem className="text-white flex gap-5 items-center ">
+          <ListItem className="text-primary-textcolor flex gap-5 items-center ">
             <ListItemPrefix>
               <InboxIcon className="h-5 w-5" />
             </ListItemPrefix>
@@ -117,7 +117,7 @@ export function MultiLevelSidebar() {
           icon={
             <ChevronDownIcon
               strokeWidth={2.5}
-              className={`mx-auto h-4 w-4 text-white  transition-transform ${
+              className={`mx-auto h-4 w-4 text-primary-textcolor  transition-transform ${
                 open === 2 ? "rotate-180" : ""
               }`}
             />
@@ -129,11 +129,11 @@ export function MultiLevelSidebar() {
               className="border-b-0 p-3 flex gap-5 items-center"
             >
               <ListItemPrefix>
-                <ShoppingBagIcon className="h-5 w-5 text-white " />
+                <ShoppingBagIcon className="h-5 w-5 text-primary-textcolor " />
               </ListItemPrefix>
               <Typography
                 color="blue-gray"
-                className="mr-auto font-normal text-white "
+                className="mr-auto font-normal text-primary-textcolor "
               >
                 CMS Management
               </Typography>
@@ -144,21 +144,21 @@ export function MultiLevelSidebar() {
               className={`py-0 ${open === 0 || open === 1 ? "hidden" : ""}`}
             >
               <NavLink to="/aboutus">
-                <ListItem className="text-white ">About Us</ListItem>
+                <ListItem className="text-primary-textcolor ">About Us</ListItem>
               </NavLink>
               <NavLink to="/privacypolicy">
-                <ListItem className="text-white ">Privacy Policy</ListItem>
+                <ListItem className="text-primary-textcolor ">Privacy Policy</ListItem>
               </NavLink>
               <NavLink to="/termsandconditions">
-                <ListItem className="text-white ">
+                <ListItem className="text-primary-textcolor ">
                   Terms and Conditions
                 </ListItem>
               </NavLink>
               <NavLink to="/contactrequest">
-                <ListItem className="text-white ">Contact Request</ListItem>
+                <ListItem className="text-primary-textcolor ">Contact Request</ListItem>
               </NavLink>
               <NavLink to="/deleterequest">
-                <ListItem className="text-white ">Delete Request</ListItem>
+                <ListItem className="text-primary-textcolor ">Delete Request</ListItem>
               </NavLink>
             </List>
           </AccordionBody>
@@ -169,7 +169,7 @@ export function MultiLevelSidebar() {
           icon={
             <ChevronDownIcon
               strokeWidth={2.5}
-              className={`mx-auto h-4 w-4 text-white  transition-transform ${
+              className={`mx-auto h-4 w-4 text-primary-textcolor  transition-transform ${
                 open === 1 ? "rotate-180" : ""
               }`}
             />
@@ -181,11 +181,11 @@ export function MultiLevelSidebar() {
               className="border-b-0 p-3 flex gap-5 items-center"
             >
               <ListItemPrefix>
-                <ShoppingBagIcon className="h-5 w-5 text-white " />
+                <ShoppingBagIcon className="h-5 w-5 text-primary-textcolor " />
               </ListItemPrefix>
               <Typography
                 color="blue-gray"
-                className="mr-auto font-normal text-white "
+                className="mr-auto font-normal text-primary-textcolor "
               >
                 Promotions
               </Typography>
@@ -196,10 +196,10 @@ export function MultiLevelSidebar() {
               className={`py-0 ${open === 0 || open === 2 ? "hidden" : ""}`}
             >
               <NavLink to="/promocodes">
-                <ListItem className="text-white ">Promo Codes</ListItem>
+                <ListItem className="text-primary-textcolor ">Promo Codes</ListItem>
               </NavLink>
               <NavLink to="/homecards">
-                <ListItem className="text-white ">Home Cards</ListItem>
+                <ListItem className="text-primary-textcolor ">Home Cards</ListItem>
               </NavLink>
             </List>
           </AccordionBody>

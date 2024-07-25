@@ -12,7 +12,7 @@ const EditMover = () => {
       <div className="m-3">
         <a onClick={backHandler}>
           <button className="active-button bg-[#CBD2DA] text-white rounded-3xl h-10 w-20">
-            <div className="text-sm text-[#637083] ">Back</div>
+            <div className="text-sm text-primary-textcolor ">Back</div>
           </button>
         </a>
       </div>
@@ -99,8 +99,8 @@ const EditMover = () => {
           </div>
           <hr className="border-gray-300 border" />
           <div className="p-4 mr-5 flex justify-end">
-            <button className="active-button bg-blue-600 text-white rounded-3xl h-10 w-20">
-              <div className="text-sm italic ">Save</div>
+            <button className="active-button bg-primary-button text-white rounded-3xl h-10 w-20">
+              <div className="text-sm italic text-primary-textcolor ">Save</div>
             </button>
           </div>
         </div>
@@ -183,8 +183,8 @@ const EditMover = () => {
           <div className="p-4 mr-5 flex justify-end">
            
 
-            <button className="active-button bg-blue-600 text-white rounded-3xl h-10 w-20">
-              <div className="text-sm italic ">Save</div>
+            <button className="active-button bg-primary-button text-white rounded-3xl h-10 w-20">
+              <div className="text-sm italic text-primary-textcolor ">Save</div>
             </button>
           </div>
         </div>
@@ -318,8 +318,8 @@ const EditMover = () => {
           </div>
           <hr className="border-gray-300 border" />
           <div className="p-4 mr-5 flex justify-end">
-            <button className="active-button bg-blue-600 text-white rounded-3xl h-10 w-20">
-              <div className="text-sm italic ">Save</div>
+            <button className="active-button bg-primary-button text-white rounded-3xl h-10 w-20">
+              <div className="text-sm italic text-primary-textcolor">Save</div>
             </button>
           </div>
         </div>

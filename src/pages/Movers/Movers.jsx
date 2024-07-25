@@ -71,9 +71,9 @@ const Movers = () => {
         cell: (info) => (
           <button
             onClick={() => setActiveModal(true)}
-            className="active-button bg-red-600 text-white rounded-3xl h-8 w-16"
+            className="active-button bg-primary-button text-white rounded-3xl h-8 w-16"
           >
-            <div className="text-sm">{info.getValue()}</div>
+            <div className="text-sm text-primary-textcolor">{info.getValue()}</div>
           </button>
         ),
         header: "Active/In-Active",
@@ -133,13 +133,13 @@ const Movers = () => {
 
             <div className="Table">
               <table className="w-full text-center border-2">
-                <thead className="bg-[#637083]">
+                <thead className="bg-primary-statusbar">
                   {table.getHeaderGroups().map((headerGroup) => (
                     <tr key={headerGroup.id}>
                       {headerGroup.headers.map((header) => (
                         <th
                           key={header.id}
-                          className="capitalize px-3.5 py-2 text-[#FFFFFF]"
+                          className="capitalize px-3.5 py-2 text-primary-textcolor"
                         >
                           {flexRender(
                             header.column.columnDef.header,
@@ -157,8 +157,8 @@ const Movers = () => {
                         key={row.id}
                         className={`${
                           i % 2 === 0
-                            ? "bg-[#F2F2F2] text-center"
-                            : "bg-[#FFFFFF] text-center"
+                            ? "bg-primary-line1 text-center"
+                            : "bg-primary-line2 text-center"
                         }`}
                       >
                         {row.getVisibleCells().map((cell) => (

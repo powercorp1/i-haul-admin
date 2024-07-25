@@ -26,10 +26,10 @@ const HomeCard = () => {
         <div className="p-4 mr-5 flex justify-end">
           <div className="px-3">
             <button
-              className="active-button bg-[#CBD2DA] text-black rounded-md h-10 w-20"
+              className="active-button bg-primary-button text-black rounded-md h-10 w-20"
               onClick={addNewHandler}
             >
-              <div className="text-sm text-[#637083] ">Add New</div>
+              <div className="text-sm text-primary-textcolor ">Add New</div>
             </button>
           </div>
         </div>

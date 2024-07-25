@@ -63,8 +63,8 @@ const Serviceable = () => {
 
     columnHelper.accessor("active", {
       cell: (info) => (
-        <button onClick={()=>setActiveModal(true)} className="active-button bg-red-600 text-white rounded-3xl h-8 w-16">
-          <div className="text-sm">{info.getValue()}</div>
+        <button onClick={()=>setActiveModal(true)} className="active-button bg-primary-button text-white rounded-3xl h-8 w-16">
+          <div className="text-sm text-primary-textcolor">{info.getValue()}</div>
         </button>
       ),
       header: "Active/In-Active",
@@ -103,14 +103,14 @@ const Serviceable = () => {
         <div className="p-4 mr-5 flex justify-end">
           <div className="px-3">
             <a onClick={addStateHandler}>
-              <button className="active-button bg-[#CBD2DA] text-black rounded-md h-10 w-20">
-                <div className="text-sm text-[#637083] ">Add State</div>
+              <button className="active-button bg-primary-button text-black rounded-md h-10 w-20">
+                <div className="text-sm text-primary-textcolor ">Add State</div>
               </button>
             </a>
           </div>
           <a onClick={importHandler}>
-            <button className="active-button bg-[#CBD2DA] text-black rounded-md h-10 w-20  ">
-              <div className="text-sm text-[#637083] ">Import CSV</div>
+            <button className="active-button bg-primary-button text-black rounded-md h-10 w-20  ">
+              <div className="text-sm text-primary-textcolor ">Import CSV</div>
             </button>
           </a>
         </div>
@@ -125,13 +125,13 @@ const Serviceable = () => {
 
           <div className="Table">
             <table className="w-full text-left border-2">
-              <thead className="bg-[#637083]">
+              <thead className="bg-primary-statusbar">
                 {table.getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}>
                     {headerGroup.headers.map((header) => (
                       <th
                         key={header.id}
-                        className="capitalize px-3.5 py-2 text-[#FFFFFF]"
+                        className="capitalize px-3.5 py-2 text-primary-textcolor"
                       >
                         {flexRender(
                           header.column.columnDef.header,
@@ -148,7 +148,7 @@ const Serviceable = () => {
                     <tr
                       key={row.id}
                       className={`${
-                        i % 2 === 0 ? "bg-[#F2F2F2] " : "bg-[#FFFFFF] "
+                        i % 2 === 0 ? "bg-primary-line1 " : "bg-primary-line2 "
                       }`}
                     >
                       {row.getVisibleCells().map((cell) => (

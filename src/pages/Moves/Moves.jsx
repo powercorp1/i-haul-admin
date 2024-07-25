@@ -79,13 +79,13 @@ const Moves = () => {
 
           <div className="Table">
             <table className="w-full text-left border-2">
-              <thead className="bg-[#637083]">
+              <thead className="bg-primary-statusbar">
                 {table.getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}>
                     {headerGroup.headers.map((header) => (
                       <th
                         key={header.id}
-                        className="capitalize px-3.5 py-2 text-[#FFFFFF]"
+                        className="capitalize px-3.5 py-2 text-primary-textcolor"
                       >
                         {flexRender(
                           header.column.columnDef.header,
@@ -102,7 +102,7 @@ const Moves = () => {
                     <tr
                       key={row.id}
                       className={`${
-                        i % 2 === 0 ? "bg-[#F2F2F2] " : "bg-[#FFFFFF] "
+                        i % 2 === 0 ? "bg-primary-line1 " : "bg-primary-line2 "
                       }`}
                     >
                       {row.getVisibleCells().map((cell) => (

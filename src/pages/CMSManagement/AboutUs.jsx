@@ -6,7 +6,7 @@ const AboutUs = () => {
       <section className=" bg-white m-2 border-2 mb-[30%]">
         <div className="flex flex-col">
           <div className="flex items-center justify-between">
-            <div className="font-bold text-2xl p-4  text-[#3C4C65]">
+            <div className="font-bold text-2xl p-4  text-primary-textcolor">
              About Us
             </div>
           </div>
@@ -14,7 +14,7 @@ const AboutUs = () => {
 
           
           <div className="flex flex-col m-5">
-            <div className="text-[#3C4C65] font-semibold">about us</div>
+            <div className="text-primary-textcolor font-semibold">about us</div>
             <div className="py-3 ">
               <textarea
                 id="text_area"
@@ -27,8 +27,8 @@ const AboutUs = () => {
 
           <hr className="border-gray-300 border m-5" />
           <div className="p-4 mr-5 flex">
-            <button className="active-button bg-blue-600 text-white rounded-3xl h-10 w-[10%]">
-              <div className="text-sm italic ">Update About Us</div>
+            <button className="active-button bg-primary-button text-white rounded-3xl h-10 w-[10%]">
+              <div className="text-sm italic text-primary-textcolor ">Update About Us</div>
             </button>
           </div>
         </div>

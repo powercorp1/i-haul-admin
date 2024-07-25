@@ -7,19 +7,19 @@ const Settings = () => {
       <section className=" bg-white m-2 border-2">
         <div className="flex flex-col">
           <div className="flex items-center justify-between">
-            <div className="font-bold text-md p-4  text-[#637083]">
+            <div className="font-bold text-md p-4  text-primary-textcolor">
               Upload W9 Form
             </div>
             <div className="p-4 flex items-center ">
-              <button className="active-button bg-blue-600 text-white rounded-3xl h-10 w-40">
-                <div className="text-sm italic">View Sample File</div>
+              <button className="active-button bg-primary-button text-white rounded-3xl h-10 w-40">
+                <div className="text-sm italic text-primary-textcolor">View Sample File</div>
               </button>
             </div>
           </div>
           <hr className="border-gray-300 border" />
 
           <div className="flex w-[50%] justify-between my-4">
-            <div className="text-[#637083] font-bold p-4"> File</div>
+            <div className="text-primary-textcolor font-bold p-4"> File</div>
             <div className="p-5 ">
               <div>
                 <input type="file" id="myFile" name="filename" />
@@ -28,8 +28,8 @@ const Settings = () => {
           </div>
           <hr className="border-gray-300 border" />
           <div className="p-4 mr-5 flex justify-end">
-            <button className="active-button bg-blue-600 text-white rounded-3xl h-10 w-20">
-              <div className="text-sm italic ">Save</div>
+            <button className="active-button bg-primary-button text-white rounded-3xl h-10 w-20">
+              <div className="text-sm italic text-primary-textcolor ">Save</div>
             </button>
           </div>
         </div>
@@ -37,14 +37,14 @@ const Settings = () => {
       <section className=" bg-white m-2 border-2">
         <div className="flex flex-col">
           <div className="flex items-center justify-between">
-            <div className="font-bold text-md p-4 text-[#637083]">
+            <div className="font-bold text-md p-4 text-primary-textcolor">
               Admin Fee
             </div>
           </div>
           <hr className="border-gray-300 border" />
 
           <div className="flex w-[50%] justify-between my-4 items-center">
-            <div className="text-[#637083] font-semibold p-4">
+            <div className="text-primary-textcolor font-semibold p-4">
               {" "}
               Admin Fee (%)
             </div>
@@ -60,8 +60,8 @@ const Settings = () => {
           </div>
           <hr className="border-gray-300 border" />
           <div className="p-4 mr-5 flex justify-end">
-            <button className="active-button bg-blue-600 text-white rounded-3xl h-10 w-20">
-              <div className="text-sm italic ">Save</div>
+            <button className="active-button bg-primary-button text-white rounded-3xl h-10 w-20">
+              <div className="text-sm italic text-primary-textcolor">Save</div>
             </button>
           </div>
         </div>
@@ -69,7 +69,7 @@ const Settings = () => {
       <section className=" bg-white m-2 border-2">
         <div className="flex flex-col">
           <div className="flex items-center justify-between">
-            <div className="font-bold text-md p-4 text-[#637083]">
+            <div className="font-bold text-md p-4 text-primary-textcolor">
               Move Cancellation Fee
             </div>
           </div>
@@ -77,7 +77,7 @@ const Settings = () => {
 
           <div className="flex flex-col">
             <div className="flex w-[50%] justify-between my-2 items-center">
-              <div className="text-[#637083] font-bold px-4">
+              <div className="text-primary-textcolor font-bold px-4">
                 {" "}
                 Before 24 hrs (%)
               </div>
@@ -92,7 +92,7 @@ const Settings = () => {
               </div>
             </div>
             <div className="flex w-[50%] justify-between my-2 items-center">
-              <div className="text-[#637083] font-bold px-4">
+              <div className="text-primary-textcolor font-bold px-4">
                 {" "}
                 Before 24 hrs (%)
               </div>
@@ -109,8 +109,8 @@ const Settings = () => {
           </div>
           <hr className="border-gray-300 border" />
           <div className="p-4 mr-5 flex justify-end">
-            <button className="active-button bg-blue-600 text-white rounded-3xl h-10 w-20">
-              <div className="text-sm italic ">Save</div>
+            <button className="active-button bg-primary-button text-white rounded-3xl h-10 w-20">
+              <div className="text-sm italic text-primary-textcolor">Save</div>
             </button>
           </div>
         </div>
