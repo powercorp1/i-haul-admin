@@ -10,7 +10,7 @@ import {
 import { Button } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 
-
+import { useNavigate } from "react-router-dom";
 import { USERS } from "../../data";
 import { useState } from "react";
 import { MdOutlineEdit, MdOutlineDeleteOutline, } from "react-icons/md";
@@ -25,7 +25,10 @@ const TanStackTable = () => {
    const [showPasswordModal, setShowPasswordModal] = useState(false);
    const [showActiveModal, setActiveModal] = useState(false);
 
-
+const navigate=useNavigate();
+const editHandler=()=>{
+  navigate("/edituser");
+}
   const columns = [
     columnHelper.accessor("profile", {
       cell: (info) => (
@@ -68,7 +71,7 @@ const TanStackTable = () => {
     columnHelper.accessor("action", {
       cell: (info) => (
         <span className="actions flex gap-2">
-          <a href="/edituser">
+          <a onClick={editHandler}>
             <MdOutlineEdit className="text-blue-600 text-lg" />
           </a>{" "}
           <MdOutlineDeleteOutline className="text-red-600 text-lg" />{" "}

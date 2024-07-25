@@ -9,6 +9,7 @@ import {
 
 import { useCardStore } from "../../store";
 import { color } from "framer-motion";
+import { TypeIcon } from "lucide-react";
 
 const HaulCard = ({props}) => {
   const body = useCardStore((store) => store.body);
@@ -26,9 +27,15 @@ const HaulCard = ({props}) => {
             <div className="flex flex-col w-[70%]">
               {" "}
               <CardBody className="p-5 pb-0">
-                <Typography variant="h5" color="white" className="">
-                  {props.title}
-                </Typography>
+                <div className="flex items-center justify-between">
+                  {" "}
+                  <Typography variant="h5" color="white" className="">
+                    {props.title}
+                  </Typography>
+                  <div className="pl-5">
+                    <Typography color="white">{props.applicable}</Typography>
+                  </div>
+                </div>
                 <Typography
                   variant="h5"
                   color="white"
@@ -37,14 +44,15 @@ const HaulCard = ({props}) => {
                 <Typography color="white">{props.subTitle}</Typography>
               </CardBody>
             </div>
-            <CardFooter className="pt-0">
+            <CardFooter className="pt-0 flex flex-col">
               <div className="flex justify-between">
                 <div className="ml-5 pt-10">
                   <a href="#" className="inline-block">
                     <button
                       id="burronNativeColor"
                       type="button"
-                      className="inline-block rounded-lg bg-slate-100 px-6 py-2.5 leading-tight shadow-md transition duration-150 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg"
+                      className="inline-block rounded-lg bg-slate-100 px-6 py-2.5 leading-tight shadow-md transition duration-150 ease-in-out hover:bg-slate-300 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
+                      
                     >
                       <Typography variant="h5" color="black" className="">
                         {props.actionLabel}

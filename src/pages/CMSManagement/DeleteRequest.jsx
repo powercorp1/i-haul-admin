@@ -11,63 +11,23 @@ import {
 import { Button } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 
-import { STORE } from "../../data";
-import { useNavigate } from "react-router-dom";
+import { MOVES } from "../../data";
 import { useState } from "react";
 import { MdOutlineDeleteOutline } from "react-icons/md";
-import { LuTruck } from "react-icons/lu";
 
-import Filters from "./Filters";
-import ActiveModal from "../../components/Modal/ActiveModal";
 
-const Serviceable = () => {
-  const navigate=useNavigate();
-  const addStateHandler=()=>{
-    navigate("/addstate")
-  }
-  const importHandler = () => {
-    navigate("/importcsv");
-  };
+const DeleteRequest = () => {
   const columnHelper = createColumnHelper();
 
-  const [showActiveModal, setActiveModal] = useState(false);
-
-  const [check, setCheck] = useState(true);
-
-  const isCheck=()=>{
-
-    const elements = document.getElementsByClassName("rowCheck1");
-
-    for(var i=0;i<elements.length;i++){
-        elements[i].checked=document.getElementById("headerCheck").checked;
-    }
-
-  }
   const columns = [
-    columnHelper.accessor("checkBox", {
-      cell: (info) => (
-        <label>
-          <input type="checkbox" id="rowCheck" className="rowCheck1"/>
-        </label>
-      ),
-      header: (
-        <label>
-          <input type="checkbox" id="headerCheck" onClick={isCheck}/>
-        </label>
-      ),
-    }),
-    columnHelper.accessor("stateName", {
+   
+    columnHelper.accessor("dropOffAddress", {
       cell: (info) => <span>{info.getValue()}</span>,
-      header: "State Name",
+      header: "From",
     }),
-
-    columnHelper.accessor("active", {
-      cell: (info) => (
-        <button onClick={()=>setActiveModal(true)} className="active-button bg-red-600 text-white rounded-3xl h-8 w-16">
-          <div className="text-sm">{info.getValue()}</div>
-        </button>
-      ),
-      header: "Active/In-Active",
+    columnHelper.accessor("date", {
+      cell: (info) => <span>{info.getValue()}</span>,
+      header: "Date",
     }),
     columnHelper.accessor("status", {
       cell: (info) => <span>{info.getValue()}</span>,
@@ -75,14 +35,14 @@ const Serviceable = () => {
     }),
     columnHelper.accessor("action", {
       cell: (info) => (
-        <span className="actions">
+        <span className="actions flex gap-2">
           <MdOutlineDeleteOutline className="text-red-600 text-lg" />
         </span>
       ),
       header: "Action",
     }),
   ];
-  const [data] = useState(() => [...STORE]);
+  const [data] = useState(() => [...MOVES]);
 
   const [columnFilters, setColumnFilters] = useState([]);
 
@@ -98,30 +58,9 @@ const Serviceable = () => {
   });
 
   return (
-    <div className="bg-white m-9 border-2">
+    <div className="bg-white m-9 border-2 mb-40">
       <section className="flex flex-col">
-        <div className="p-4 mr-5 flex justify-end">
-          <div className="px-3">
-            <a onClick={addStateHandler}>
-              <button className="active-button bg-[#CBD2DA] text-black rounded-md h-10 w-20">
-                <div className="text-sm text-[#637083] ">Add State</div>
-              </button>
-            </a>
-          </div>
-          <a onClick={importHandler}>
-            <button className="active-button bg-[#CBD2DA] text-black rounded-md h-10 w-20  ">
-              <div className="text-sm text-[#637083] ">Import CSV</div>
-            </button>
-          </a>
-        </div>
-        <hr className="border-gray-300 border mb-6" />
         <div className="main-container m-5 flex flex-col">
-          <div className="flex justify-end">
-            <Filters
-              columnFilters={columnFilters}
-              setColumnFilters={setColumnFilters}
-            ></Filters>
-          </div>
 
           <div className="Table">
             <table className="w-full text-left border-2">
@@ -203,14 +142,8 @@ const Serviceable = () => {
           </div>
         </div>
       </section>
-      {showActiveModal && (
-        <ActiveModal
-          onClose={() => setActiveModal(false)}
-          string="State"
-        ></ActiveModal>
-      )}
     </div>
   );
 };
 
-export default Serviceable;
+export default DeleteRequest;

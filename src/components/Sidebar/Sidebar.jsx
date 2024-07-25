@@ -39,7 +39,7 @@ export function MultiLevelSidebar() {
             <ListItem className="p-0" selected={open === 1}>
               <AccordionHeader
                 onClick={() => handleOpen(1)}
-                className="border-b-0 p-3 flex gap-5 items-center"
+                className="border-b-0 p-3 flex gap-5 items-center data-[active=true]:bg-slate-950"
               >
                 <ListItemPrefix className="text-white">
                   <PresentationChartBarIcon className="h-5 w-5" />
@@ -143,17 +143,23 @@ export function MultiLevelSidebar() {
             <List
               className={`py-0 ${open === 0 || open === 1 ? "hidden" : ""}`}
             >
-              <a href="/aboutus">
+              <NavLink to="/aboutus">
                 <ListItem className="text-white ">About Us</ListItem>
-              </a>
-              <a href="/privacypolicy">
+              </NavLink>
+              <NavLink to="/privacypolicy">
                 <ListItem className="text-white ">Privacy Policy</ListItem>
-              </a>
-              <a href="/termsandconditions">
+              </NavLink>
+              <NavLink to="/termsandconditions">
                 <ListItem className="text-white ">
                   Terms and Conditions
                 </ListItem>
-              </a>
+              </NavLink>
+              <NavLink to="/contactrequest">
+                <ListItem className="text-white ">Contact Request</ListItem>
+              </NavLink>
+              <NavLink to="/deleterequest">
+                <ListItem className="text-white ">Delete Request</ListItem>
+              </NavLink>
             </List>
           </AccordionBody>
         </Accordion>
@@ -181,7 +187,7 @@ export function MultiLevelSidebar() {
                 color="blue-gray"
                 className="mr-auto font-normal text-white "
               >
-               Promotions
+                Promotions
               </Typography>
             </AccordionHeader>
           </ListItem>
@@ -195,7 +201,6 @@ export function MultiLevelSidebar() {
               <NavLink to="/homecards">
                 <ListItem className="text-white ">Home Cards</ListItem>
               </NavLink>
-              
             </List>
           </AccordionBody>
         </Accordion>

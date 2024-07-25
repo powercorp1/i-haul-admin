@@ -7,7 +7,7 @@ import {
     getPaginationRowModel,
     useReactTable,
 } from "@tanstack/react-table";
-
+import { useNavigate } from "react-router-dom";
 import { Button } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { MdOutlineEdit, MdOutlineDeleteOutline } from "react-icons/md";
@@ -22,10 +22,15 @@ import ActiveModal from "../../components/Modal/ActiveModal";
 
 const Movers = () => {
     const columnHelper = createColumnHelper();
+    const navigate= useNavigate();
 
       const [showPasswordModal, setShowPasswordModal] = useState(false);
 
     const [showActiveModal, setActiveModal] = useState(false);
+
+    const editHandler=()=>{
+        navigate("/editmover");
+    }
 
     const columns = [
       columnHelper.accessor("profile", {
@@ -88,7 +93,7 @@ const Movers = () => {
       columnHelper.accessor("action", {
         cell: (info) => (
           <span className="actions flex gap-2">
-            <a href="/editmover">
+            <a onClick={editHandler}>
               <MdOutlineEdit className="text-blue-600 text-lg" />
             </a>{" "}
             <MdOutlineDeleteOutline className="text-red-600 text-lg" />{" "}

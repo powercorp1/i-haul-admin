@@ -26,6 +26,8 @@ import HomeCard from "./pages/Promotions/HomeCards/HomeCard";
 import AddNewHomeCard from "./pages/Promotions/HomeCards/AddNew";
 
 import Card from "./components/Card/Card";
+import ContactRequest from "./pages/CMSManagement/ContactRequest";
+import DeleteRequest from "./pages/CMSManagement/DeleteRequest";
 
 const App = () => {
   const location = useLocation();
@@ -108,10 +110,9 @@ const App = () => {
               path="/addnewhomecard"
             />
 
-            <Route
-              element={<Card></Card>}
-              path="/card"
-            />
+            <Route element={<Card></Card>} path="/card" />
+            <Route element={<ContactRequest></ContactRequest>} path="/contactrequest" />
+            <Route element={<DeleteRequest></DeleteRequest>} path="/deleterequest" />
           </Routes>
         </section>
       </div>

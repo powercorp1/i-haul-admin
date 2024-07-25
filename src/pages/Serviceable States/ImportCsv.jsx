@@ -1,7 +1,10 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 const ImportCsv=()=>{
-
+const navigate = useNavigate();
+const backHandler = () => {
+  navigate("/store");
+};
     return (
       <div className="pb-[35%]">
         <section className=" bg-white m-2 border-2 mt-5">
@@ -28,7 +31,7 @@ const ImportCsv=()=>{
             </div>
             <hr className="border-gray-300 border" />
             <div className="p-4 mr-5 flex justify-between">
-              <a href="/store">
+              <a onClick={backHandler}>
                 <button className="active-button bg-[#CBD2DA] text-white rounded-3xl h-10 w-20">
                   <div className="text-sm text-[#637083] ">Back</div>
                 </button>

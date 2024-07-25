@@ -16,15 +16,15 @@ const AddNewHomeCard = ({ cardDetails }) => {
     },
     {
       label: "Mover",
-      value: "moverspecific",
+      value: "moveronly",
     },
     {
       label: "Customer",
-      value: "customerspecific",
+      value: "customeronly",
     },
     {
       label: "Mover",
-      value: "moverSpecific",
+      value: "moveronly",
     },
   ];
   const [titleValue, setTitleValue] = useState("");

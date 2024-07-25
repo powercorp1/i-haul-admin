@@ -1,10 +1,16 @@
 import React from "react";
 import { FiEdit2 } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+
 const EditMover = () => {
+  const navigate=useNavigate();
+  const backHandler=()=>{
+    navigate("/movers");
+  }
   return (
     <div className="m-5 mt-3 flex flex-col">
       <div className="m-3">
-        <a href="/movers">
+        <a onClick={backHandler}>
           <button className="active-button bg-[#CBD2DA] text-white rounded-3xl h-10 w-20">
             <div className="text-sm text-[#637083] ">Back</div>
           </button>
